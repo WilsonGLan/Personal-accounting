@@ -1,7 +1,5 @@
 from calendar import month
 from tkinter import *
-from unicodedata import category
-
 
 def valorGasto():
   gasto = input("Por favor ingrese el valor: $")
@@ -21,16 +19,6 @@ def save():
     file.write(f"{category.upper()};{description};{expenses}\n")
     description_entry.delete(0, END)
     expenses_entry.delete(0, END)
-
-#mes_gto = input("Por favor ingrese el mes donde ocurren los gastos en el siguiente formato YYYYMM: ")
-
-# pto = nombreProducto()
-# vlr = valorGasto()
-
-# print("SISTEMA ADMINISTRADOR DE GASTOS PERSONALES")
-
-# with open(f"csv/{mes_gto}.csv", "a", encoding='utf-8-sig') as file:
-#   file.write(f"{pto};{vlr}\n")
 
 # =================== UI SETUP =======================
 window = Tk()
@@ -52,7 +40,6 @@ description_label = Label(text="Description:")
 description_label.grid(row=2, column=0)
 expenses_label = Label(text="Expenses:")
 expenses_label.grid(row=3, column=0)
-
 
 #Entries
 
