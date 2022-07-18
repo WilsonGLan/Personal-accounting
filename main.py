@@ -1,4 +1,7 @@
-import csv
+from calendar import month
+from tkinter import *
+from unicodedata import category
+
 
 def valorGasto():
   gasto = input("Por favor ingrese el valor: $")
@@ -8,15 +11,50 @@ def nombreProducto():
   producto = input("Por favor ingrese nombre del gasto: ").upper()
   return producto
 
-fila = [nombreProducto(), valorGasto()]
+#mes_gto = input("Por favor ingrese el mes donde ocurren los gastos en el siguiente formato YYYYMM: ")
 
-nuevoArchivo = open('csv/income.csv', mode='w', encoding='utf-8-sig' )
-with nuevoArchivo:
-  writer = csv.writer(nuevoArchivo)
-  writer.writerow(fila)
+# pto = nombreProducto()
+# vlr = valorGasto()
+
+# print("SISTEMA ADMINISTRADOR DE GASTOS PERSONALES")
+
+# with open(f"csv/{mes_gto}.csv", "a", encoding='utf-8-sig') as file:
+#   file.write(f"{pto};{vlr}\n")
+
+# =================== UI SETUP =======================
+window = Tk()
+window.title("MONEY MANAGER")
+window.config(padx=50, pady=50) # Relleno en los bordes del lienzo
+
+canvas = Canvas(height=200, width=400)  #Creación del lienzo
+#logo_img = PhotoImage(file="logo.png")
+#canvas.create_image(100, 100, image=logo_img)
+#canvas.grid(row=0, column=1)
+
+#Labels
+
+month_label = Label(text="Month (YYYYMM):")
+month_label.grid(row=0, column=0)
+category_label= Label(text="Category:")
+category_label.grid(row=1, column=0)
+description_label = Label(text="Description:")
+description_label.grid(row=2, column=0)
+expenses_label = Label(text="Expenses:")
+expenses_label.grid(row=3, column=0)
+
+
+#Entries
+
+month_entry = Entry(width=20)
+month_entry.grid(row=0, column=1)
+category_entry = Entry(width=20)
+category_entry.grid(row=1, column=1)
+description_entry = Entry(width=20)
+description_entry.grid(row=2, column=1)
+expenses_entry = Entry(width=20)
+expenses_entry.grid(row=3, column=1)
 
 
 
-print("SISTEMA ADMINISTRADOR DE GASTOS PERSONALES")
 
-
+window.mainloop()
