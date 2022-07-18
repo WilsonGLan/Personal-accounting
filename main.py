@@ -18,7 +18,7 @@ def save():
   expenses = expenses_entry.get()
 
   with open(f"csv/{month}.csv", "a", encoding='utf-8-sig') as file:
-    file.write(f"{category};{description};{expenses}\n")
+    file.write(f"{category.upper()};{description};{expenses}\n")
     description_entry.delete(0, END)
     expenses_entry.delete(0, END)
 
