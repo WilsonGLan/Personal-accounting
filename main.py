@@ -11,6 +11,17 @@ def nombreProducto():
   producto = input("Por favor ingrese nombre del gasto: ").upper()
   return producto
 
+def save():
+  month = month_entry.get()
+  category = category_entry.get()
+  description = description_entry.get()
+  expenses = expenses_entry.get()
+
+  with open(f"csv/{month}.csv", "a", encoding='utf-8-sig') as file:
+    file.write(f"{category};{description};{expenses}\n")
+    description_entry.delete(0, END)
+    expenses_entry.delete(0, END)
+
 #mes_gto = input("Por favor ingrese el mes donde ocurren los gastos en el siguiente formato YYYYMM: ")
 
 # pto = nombreProducto()
@@ -54,7 +65,10 @@ description_entry.grid(row=2, column=1)
 expenses_entry = Entry(width=20)
 expenses_entry.grid(row=3, column=1)
 
+# Button
 
+add_button = Button(text="Add", width=44, command=save)
+add_button.grid(row=4, column=0, columnspan=2)
 
 
 window.mainloop()
